@@ -2,27 +2,31 @@
 #include <cmath>
 
 int main() {
-    double a, b, l, r;
-    a = 1;
-    b = 0;
+    double l, r, b, s;
     l = 0;
     r = 1;
-    int s = 0;
+    s = 0;
+    double fl, fb;
+
     while (r - l > 0.0001)
     {
         s++;
         b = (l + r) / 2;
-        if (sqrt(1 - b) - tan(b))
-        {
-            r = b;
-        }
-        else 
-        {
-            l = b;
-        }
-        std::cout << s;
-        std::cout << " ";
-        std::cout << b << std::endl;
+        fl = sqrt(1 - l) - tan(l);
+        fb = sqrt(1 - b) - tan(b);
+        if (fl * fb < 0)
+    {
+        r = b;
     }
-    std::cout << b << std::endl;
+    else
+    {
+        l = b;
+    }
+    std::cout << s << " " << b << std::endl;
+
+    }
+    b = (l + r) / 2;
+    std::cout << "Корень: " << b << std::endl;
+
+    return 0;
 }
